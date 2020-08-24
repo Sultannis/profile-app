@@ -1,2 +1,2 @@
-# Profile-app
+# profile-app
 Profile app on nuxt js
