@@ -1,11 +1,11 @@
 <template>
   <div class="container">
       <h1>User information</h1>
-      <div class="wrapper">
-          <v-img max-width="200px" :src="user.data[0].avatar" aspect-ratio="1"></v-img>
+      <div class="wrapper" v-if="users.length">
+          <v-img max-width="200px" :src="users[4].avatar" aspect-ratio="1"></v-img>
           <div class="data">
-            <h2 class="name">{{user.data[0].first_name}} {{user.data[0].last_name}}</h2>
-            <h2 class="email">{{user.data[0].email}}</h2>
+            <h2 class="name">{{users[4].first_name}} {{users[4].last_name}}</h2>
+            <h2 class="email">{{users[4].email}}</h2>
           </div>
       </div>
   </div>
@@ -13,14 +13,13 @@
 
 <script>
 export default {
-  data() {
-      return {
-        users: []
-      }
-  },
-  async mounted() {
-    this.users = await this.$axios.$get('https://reqres.in/api/users?page=2/');
-    console.log(this.users)
+  data: () => ({
+    users: []
+  }),
+  mounted() {
+  this.$axios.$get('https://reqres.in/api/users?page=2/')
+    .then((res) => {
+      this.users = res.data})
   }
 }
 </script>
