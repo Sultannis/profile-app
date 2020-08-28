@@ -1,5 +1,9 @@
 <template>
-  <h1>Login page</h1>
+  <v-app> 
+      <v-container>
+          <nuxt />
+      </v-container>
+  </v-app>
 </template>
 
 <script>
